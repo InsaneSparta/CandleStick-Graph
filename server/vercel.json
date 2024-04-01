@@ -1,0 +1,14 @@
+{
+  "versions": 2,
+  
+  "build": [
+    { "src": "*.js", "use": "@varcel/node" }
+  ],
+  
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
