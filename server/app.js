@@ -25,8 +25,13 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use('/btcusd', btcusdRouter);
 app.use('/eurusd', eurusdRouter);
 
+// Catch-all route
 app.use('*', (req, res) => {
-  res.status(404).json({ error: 'Not Found' });
+  res.status(404).json({
+    error: 'Not Found',
+    message: `The requested route '${req.path}' does not exist.`,
+    method: req.method,
+  });
 });
 
 app.listen(port, () => {
