@@ -5,6 +5,7 @@ const btcusdRouter = require('./routes/btcusd.routes');
 const eurusdRouter = require('./routes/eurusd.routes');
 
 const app = express();
+const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
@@ -24,4 +25,10 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use('/btcusd', btcusdRouter);
 app.use('/eurusd', eurusdRouter);
 
+app.use('*', (req, res) => {
+  res.status(404).json({ error: 'Not Found' });
+});
 
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
+});
