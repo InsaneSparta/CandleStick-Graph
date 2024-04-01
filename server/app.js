@@ -22,6 +22,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.log(err));
 
 // API routes
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to my API' });
+});
 app.use('/btcusd', btcusdRouter);
 app.use('/eurusd', eurusdRouter);
 
