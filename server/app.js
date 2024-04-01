@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ["https://candle-stick-graph.vercel.app"],
+  origin: ["https://candle-stick-graph-vkfp.vercel.app"],
   methods: ["POST", "GET"],
   credentials: true
 }));
